@@ -1,9 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { query } from '@angular/animations';
 import { debounceTime, distinctUntilChanged, switchMap } from 'rxjs/operators';
 import { Usuario } from './usuario.model';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { ApiResponse } from './apiResponse.model';
 
 
 @Component({
@@ -12,12 +15,27 @@ import { Usuario } from './usuario.model';
   styleUrls: ['./personal.component.scss'] 
 })
 export class PersonalComponent implements OnInit {
+  value!: string;
   control = new FormControl();
   subcadena!: string
   mensajeError!: string;
-  usuarios: Usuario [] = [];
+  usuarios!: ApiResponse[];
+  myControl = new FormControl();
+  options: string[] = ['Nombre', 'Facultad'];
+  filteredOptions: Observable<string[]>;
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient){
+    this.filteredOptions = this.myControl.valueChanges
+      .pipe(
+        startWith(''),
+        map(value => this._filter(value))
+      );
+  }
+
+  private _filter(value: string): string[] {
+    const filterValue = value.toLowerCase();
+    return this.options.filter(option => option.toLowerCase().includes(filterValue));
+  }
 
   ngOnInit(): void {
     this.Observador()
@@ -34,8 +52,11 @@ export class PersonalComponent implements OnInit {
   }
 
   getUsuario(query: string){
-    const params = new HttpParams().set('subcadena', query);
-    this.http.get('http://localhost:8080/usuarios/buscar', {params}).subscribe(response =>{
+    const data={
+      subcadena: query, 
+      tipo: this.value
+    };
+    this.http.post('http://localhost:8080/usuarios/buscar', data).subscribe(response =>{
       this.usuarios = response as any
     }, error => {
       if (error.status === 401) {

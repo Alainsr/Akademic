@@ -7,7 +7,7 @@ export interface Usuario{
     grupo: string,
     carnet: string,
     año: string,
-    profesor: false,
-    admin: false,
-    estudiante: false
+    profesor: boolean,
+    admin: boolean,
+    estudiante: boolean
 }

@@ -19,7 +19,7 @@ import { PersonalComponent } from './pages/personal/personal.component';
 import { AuthService } from './auth.service';
 import { MaterialModule } from './material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
-
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
 @NgModule({
   declarations: [
@@ -45,7 +45,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    MatAutocompleteModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

@@ -1,11 +1,39 @@
-<div fxLayout="row" fxLayoutAlign="center center">
-    <input type="text" placeholder="Buscar..." [formControl]="control">
-    <div *ngIf="mensajeError" class="error" class="error">{{
-        mensajeError }}</div>
+<app-navbar></app-navbar>
+<div class="container">
+    <div>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Filtrar por...</mat-label>
+                <input type="text"
+                    [(ngModel)]="value"
+                    aria-label="Filtrar por..."
+                    matInput
+                    [formControl]="myControl"
+                    [matAutocomplete]="auto">
+                <mat-autocomplete #auto="matAutocomplete">
+                    <mat-option *ngFor="let option of filteredOptions | async"
+                        [value]="option">
+                        {{option}}
+                    </mat-option>
+                </mat-autocomplete>
+            </mat-form-field>
+        </form>
+        <form class="example-form">
+            <mat-form-field class="example-full-width">
+                <mat-label>Buscar...</mat-label>
+                <input matInput type="text" [formControl]="control">
+            </mat-form-field>
+        </form>
+        <div *ngIf="mensajeError" class="error" class="error">{{
+            mensajeError }}</div>
+
+    </div>
+
+    <div *ngFor="let user of usuarios">
+        {{user.body.usuario}}
+        {{user.body.nombre}}
+        {{user.body.correo}}
+        {{user.body.facultad}}
+    </div>
 </div>
-<div *ngFor="let user of usuarios">
-    {{user.usuario}}
-    {{user.nombre}}
-    {{user.correo}}
-    {{user.facultad}}
-</div>
+<app-footer></app-footer>
