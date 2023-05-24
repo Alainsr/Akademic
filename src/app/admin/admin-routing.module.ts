@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { NavComponent } from './components/nav/nav.component';
 import { ListaPersonalComponent } from './components/lista-personal/lista-personal.component';
 import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 
 const routes: Routes = [
   
@@ -18,6 +19,10 @@ const routes: Routes = [
         path: 'personal/crearUsuario',
         component: CrearUsuarioComponent,
       },
+      {
+        path: 'personal/editarUsuario',
+        component: EditarUsuarioComponent
+      }
       
     ]
   }

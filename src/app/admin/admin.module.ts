@@ -20,6 +20,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
+import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 
 
 
@@ -30,7 +31,8 @@ import { MatCardModule } from '@angular/material/card';
     NavComponent,
     ListaPersonalComponent,
     CrearUsuarioComponent,
-    
+    EditarUsuarioComponent,
+  
   ],
   imports: [
     CommonModule,

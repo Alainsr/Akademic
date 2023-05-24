@@ -16,7 +16,20 @@ export class UsersService{
         return this.http.post('http://localhost:8080/usuarios/adicionar', usuario)
     }
 
+    getUser(nombre: string){
+        return this.http.get<Usuario>(`http://localhost:8080/usuarios/obtenerUser?nombre=${nombre}`)
+    }
+
+    updateUser(nombre: string, usuario: Usuario){
+        const data = {
+            nombre,
+            usuario
+        }
+        return this.http.put('http://localhost:8080/usuarios/actualizar', data)
+    }
+
     deleteUser(nombre: string){
         return this.http.delete('http://localhost:8080/usuarios/borrar')
     }
+
 }
