@@ -1,6 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute, Params } from '@angular/router';
+import { Component} from '@angular/core';
+import { NgForm } from '@angular/forms';
 import { UsersService } from '../../users.service';
 
 @Component({
@@ -9,18 +8,18 @@ import { UsersService } from '../../users.service';
   styleUrls: ['./editar-usuario.component.scss']
 })
 export class EditarUsuarioComponent{
-  form!: FormGroup;
   nombre!: string;
   tipo!: string;
   valor!: string;
-  user!: any
+  user!: any;
+  form!: NgForm;
 
   constructor(
-    private formBuilder: FormBuilder,
     private usersService: UsersService,
-  ){this.buildForm();}
+  ){}
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
+    console.log('se presiono el boton')
     const data = {
       usuario: this.nombre,
       tipo: this.tipo,
@@ -32,16 +31,9 @@ export class EditarUsuarioComponent{
     })
   }
 
-  private buildForm(){
-    this.form = this.formBuilder.group({
-      nombre:['',[Validators.required]],
-      tipo:['',[Validators.required]],
-      valor:['',[Validators.required]],
-      
-    });
-  }
+}
   
 
 
 
-}
+

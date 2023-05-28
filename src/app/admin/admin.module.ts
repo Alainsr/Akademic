@@ -21,7 +21,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
-
+import { FormsModule} from '@angular/forms';
 
 
 
@@ -53,6 +53,7 @@ import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuar
     MatRadioModule,
     MatCardModule,
     MatCheckboxModule,
+    FormsModule,
     
   ]
 })
