@@ -20,11 +20,7 @@ export class UsersService{
         return this.http.get<Usuario>(`http://localhost:8080/usuarios/obtenerUser?nombre=${nombre}`)
     }
 
-    updateUser(nombre: string, usuario: Usuario){
-        const data = {
-            nombre,
-            usuario
-        }
+    updateUser(data: any){
         return this.http.put('http://localhost:8080/usuarios/actualizar', data)
     }
 

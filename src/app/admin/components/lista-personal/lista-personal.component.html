@@ -1,23 +1,23 @@
 <a mat-raised-button routerLink="crearUsuario"> Crear Usuario </a>
+<a mat-raised-button routerLink="editarUsuario"> Editar Usuario</a>
 <table mat-table [dataSource]="usuarios" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef> ID </th>
-        <td mat-cell *matCellDef="let usuario"> {{usuario.id}} </td>
-    </ng-container>
     <ng-container matColumnDef="nombre">
         <th mat-header-cell *matHeaderCellDef> Nombre </th>
-        <td mat-cell *matCellDef="let usuario"> {{usuario.nombre}} </td>
+        <td mat-cell *matCellDef="let user"> {{user.nombre}} </td>
+    </ng-container>
+    <ng-container matColumnDef="usuario">
+        <th mat-header-cell *matHeaderCellDef> Usuario </th>
+        <td mat-cell *matCellDef="let user"> {{user.usuario}} </td>
     </ng-container>
     <ng-container matColumnDef="correo">
         <th mat-header-cell *matHeaderCellDef> Correo </th>
-        <td mat-cell *matCellDef="let usuario"> {{usuario.correo}} </td>
+        <td mat-cell *matCellDef="let user"> {{user.correo}} </td>
     </ng-container>
     <ng-container matColumnDef="actions">
         <th mat-header-cell *matHeaderCellDef> Actions </th>
-        <td mat-cell *matCellDef="let usuario">
+        <td mat-cell *matCellDef="let user">
             <button mat-raised-button color="warn"
-                (click)="deleteUser(usuario.nombre)">Eliminar</button>
-            <button mat-button>Editar</button>
+                (click)="deleteUser(user.nombre)">Eliminar</button>
         </td>
     </ng-container>
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

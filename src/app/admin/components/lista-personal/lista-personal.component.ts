@@ -11,7 +11,7 @@ import { Usuario } from 'src/app/pages/personal/usuario.model';
 })
 export class ListaPersonalComponent implements OnInit{
   usuarios: Usuario[] = [];
-  displayedColumns: string[] = ['id', 'nombre', 'correo', 'actions'];
+  displayedColumns: string[] = ['nombre', 'usuario', 'correo', 'actions'];
 
   constructor(
     private usersService: UsersService
