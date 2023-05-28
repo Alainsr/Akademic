@@ -18,7 +18,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { PersonalComponent } from './pages/personal/personal.component';
 import { AuthService } from './auth.service';
 import { MaterialModule } from './material/material.module';
-import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatAutocompleteModule } from "@angular/material/autocomplete";
 
 @NgModule({
@@ -45,7 +44,6 @@ import { MatAutocompleteModule } from "@angular/material/autocomplete";
     ReactiveFormsModule,
     HttpClientModule,
     MaterialModule,
-    FlexLayoutModule,
     MatAutocompleteModule
   ],
   providers: [AuthService],
