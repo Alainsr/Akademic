@@ -4,6 +4,7 @@ import { NavComponent } from './components/nav/nav.component';
 import { ListaPersonalComponent } from './components/lista-personal/lista-personal.component';
 import { CrearUsuarioComponent } from './components/crear-usuario/crear-usuario.component';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
+import { EliminarUsuarioComponent } from './components/eliminar-usuario/eliminar-usuario.component'
 
 const routes: Routes = [
   
@@ -22,6 +23,10 @@ const routes: Routes = [
       {
         path: 'personal/editarUsuario',
         component: EditarUsuarioComponent
+      },
+      {
+        path: 'personal/eliminarUsuario',
+        component: EliminarUsuarioComponent
       }
       
     ]

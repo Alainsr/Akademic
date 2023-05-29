@@ -22,6 +22,7 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatCardModule } from '@angular/material/card';
 import { EditarUsuarioComponent } from './components/editar-usuario/editar-usuario.component';
 import { FormsModule} from '@angular/forms';
+import { EliminarUsuarioComponent } from './components/eliminar-usuario/eliminar-usuario.component';
 
 
 
@@ -32,6 +33,7 @@ import { FormsModule} from '@angular/forms';
     ListaPersonalComponent,
     CrearUsuarioComponent,
     EditarUsuarioComponent,
+    EliminarUsuarioComponent,
   
   ],
   imports: [
